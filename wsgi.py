@@ -1,3 +1,3 @@
-from sfdata import create_app
+from sfdata import app
 
-app = create_app()
+app = welcome()
