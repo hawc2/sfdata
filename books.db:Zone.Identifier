@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=https://programminghistorian.org/en/lessons/creating-apis-with-python-and-flask
+HostUrl=https://programminghistorian.org/assets/creating-apis-with-python-and-flask/books.db
