@@ -17,7 +17,8 @@ import sys
 
 def LDA(data):
     path = os.path.dirname(os.path.abspath(__file__))
-    df = pd.read_csv(data)
+    df = pd.read_csv(path + '/data/HL.csv')
+    #df = pd.read_csv(data)
     df.to_json (path + '/data/HL.json')
     data = df.text.values.tolist()
 

@@ -15,8 +15,8 @@ def welcome():
 @app.route('/topics', methods=['GET'])
 def ldaviz():
     path = os.path.dirname(os.path.abspath(__file__))
-    data = path + '/data/HL.csv'
-    result = LDA(data)
+    #data = input (create request form for user to filter data)
+    #result = LDA(data)
     return render_template('LDAviz.html')
 
 
