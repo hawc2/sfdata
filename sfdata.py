@@ -3,20 +3,20 @@ from flask import Flask, request, jsonify, render_template
 import sqlite3
 from LDA import LDA
 import pyLDAvis
+import os
+
+os.chdir(path)
 
 app = Flask(__name__)
-app.config["DEBUG"] = True
 
 @app.route('/')
 def welcome():
     return render_template("welcome.html")
 
-
 @app.route('/topics', methods=['GET'])
 def ldaviz():
-    data = '/home/hawc/sfdata/data/HL.csv'
+    data = r'https://sf-extractedfeatures.herokuapp.com/data/HL.csv'
     result = LDA(data)
-    #return pyLDAvis.show(vis)
     return render_template('LDAviz.html')
 
 
