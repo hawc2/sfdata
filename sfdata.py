@@ -1,26 +1,39 @@
-#import flask
+
 from flask import Flask, request, jsonify, render_template
 import sqlite3
+from LDA import LDA
+import pyLDAvis
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
+
+@app.route('/')
+def welcome():
+    return render_template("welcome.html")
+
+
+@app.route('/topics', methods=['GET'])
+def ldaviz():
+    data = '/home/hawc/sfdata/data/HL.csv'
+    result = LDA(data)
+    #return pyLDAvis.show(vis)
+    return render_template('LDAviz.html')
+
+
+
+
+
+
+#Books API
+#Prog Hist model: https://programminghistorian.org/en/lessons/creating-apis-with-python-and-flask
+
 
 def dict_factory(cursor, row):
     d = {}
     for idx, col in enumerate(cursor.description):
         d[col[0]] = row[idx]
     return d
-
-@app.route('/')
-def welcome():
-    return render_template("welcome.html")
-
-#@app.route('/', methods=['GET'])
-#def home():
-#    return '''<h1>Distant Reading Archive</h1>
-#<p>A prototype API for distant reading of science fiction novels.</p>'''
-
-
+    
 @app.route('/api/v1/resources/books/all', methods=['GET'])
 def api_all():
     conn = sqlite3.connect('books.db')

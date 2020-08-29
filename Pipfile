@@ -8,6 +8,11 @@ verify_ssl = true
 [packages]
 flask = "*"
 gunicorn = "*"
+gensim = "*"
+pandas = "*"
+pyldavis = "*"
+matplotlib = "*"
+flask-shell-ipython = "*"
 
 [requires]
 python_version = "3.8"

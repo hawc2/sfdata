@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}i{% endblock %}
+{{ super() }}
+  {% block content %}
+ 
+  <!-- <style type="text/css"> 
+  </style><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type='text/javascript'>
+  $(document).ready(function(){
+    var graphData = {{ result|tojson }};
+    console.log(graphData);
+</script>
+<div id="display1"></div> -->
+
+{% endblock %}
