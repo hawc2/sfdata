@@ -12,14 +12,13 @@ import matplotlib.pyplot as plt
 import os
 from importlib import reload
 from pprint import pprint
+import sys
 #get_ipython().run_line_magic('matplotlib', 'inline')
 
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
-
-
 def LDA(data):
+    path = os.path.dirname(os.path.abspath(__file__))
     df = pd.read_csv(data)
-    df.to_json (r'https://sf-extractedfeatures.herokuapp.com/data/HL.json')
+    df.to_json (path + '/data/HL.json')
     data = df.text.values.tolist()
 
     def sent_to_words(sentences):
@@ -42,4 +41,4 @@ def LDA(data):
                                            per_word_topics=True)
 
     vis = pyLDAvis.gensim.prepare(lda_model, corpus, id2word)
-    pyLDAvis.save_html(vis, 'https://sf-extractedfeatures.herokuapp.com/templates/LDAviz.html')
+    pyLDAvis.save_html(vis, path + '/templates/LDAviz.html')

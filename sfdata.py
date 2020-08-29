@@ -4,6 +4,7 @@ import sqlite3
 from LDA import LDA
 import pyLDAvis
 import os
+import sys
 
 app = Flask(__name__)
 
@@ -13,7 +14,8 @@ def welcome():
 
 @app.route('/topics', methods=['GET'])
 def ldaviz():
-    data = r'https://sf-extractedfeatures.herokuapp.com/data/HL.csv'
+    path = os.path.dirname(os.path.abspath(__file__))
+    data = path + '/data/HL.csv'
     result = LDA(data)
     return render_template('LDAviz.html')
 
