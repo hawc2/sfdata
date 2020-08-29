@@ -5,8 +5,6 @@ from LDA import LDA
 import pyLDAvis
 import os
 
-os.chdir(path)
-
 app = Flask(__name__)
 
 @app.route('/')
