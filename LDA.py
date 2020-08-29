@@ -10,7 +10,7 @@ import pyLDAvis
 import pyLDAvis.gensim
 import matplotlib.pyplot as plt
 import os
-from importlib import reload
+#from importlib import reload
 from pprint import pprint
 import sys
 #get_ipython().run_line_magic('matplotlib', 'inline')
